@@ -1,6 +1,6 @@
-
-<img =src"https://i.imgur.com/R3VNpeU.png">
-
+<p align="center">
+  <img src="https://i.imgur.com/R3VNpeU.png" alt=""/>
+</p>
 
 
 - 👋 Hola, I’m @Strohutt (obv)
