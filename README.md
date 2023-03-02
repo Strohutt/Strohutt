@@ -5,7 +5,7 @@
 
 - 👋 Hola, I’m @Strohutt (obv)
 - 👀 My biggest goal is... to completely learn Python, HTML and CSS
-- 🌱 I’m currently learning Python, HTML and CSS
+- 🌱 I’m currently learning Python, HTML, CSS and JS
 - 📫 How to reach me -> strohuttt@gmail.com
 
 <h2 align="center">Socials</h2>
