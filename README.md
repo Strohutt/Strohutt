@@ -6,12 +6,6 @@
 - 👋 Hola, I’m @Strohutt (obv)
 - 👀 My biggest goal is... to get some maidens
 - 🌱 I’m currently learning Python, HTML etc.
-- 📫 How to reach me -> strohuttt@gmail.com
+- 📫 How to reach me -> Discord: Hao#4000
 
 <h2 align="center">Socials</h2>
-
-<p align="center">
-<a href="https://twitter.com/strohut_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="strohut_" height="30" width="40" /></a>
-<a href="https://www.youtube.com/c/strohut" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="strohut" height="30" width="40" /></a>
-<a href="https://discord.gg/ttHTYxNxuB" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="effect" height="30" width="40" /></a>
-</p>
