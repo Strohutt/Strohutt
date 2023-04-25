@@ -10,7 +10,7 @@ Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced
 
 # Discord Im working on:
 
-<img src="https://discordapp.com/api/guilds/[948896716566974464]/widget.png?style=shield" alt="Discord Shield"/>
 ![Discord Shield](https://discordapp.com/api/guilds/[948896716566974464]/widget.png?style=shield)
+<img src="https://discordapp.com/api/guilds/[948896716566974464]/widget.png?style=shield" alt="Discord Shield"/>
 
 
