@@ -15,8 +15,7 @@ Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced
 
 <h5 align="center"> 
     <img src="https://lanyard-profile-readme.vercel.app/api/832022453915090984?theme=dark&bg=0d1117&animated=true&hideDiscrim=true&borderRadius=25px" alt=""/> 
+    <img src="https://discordapp.com/api/guilds/[SERVER ID]/widget.png?style=banner1" alt="Discord Banner 1"/>
   </h3>
   
-![ValoHS](https://discordapp.com/api/guilds/948896716566974464/widget.png?style=banner2)
-
 
