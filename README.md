@@ -1,4 +1,3 @@
-<h5 align="center"> <img src="https://lanyard-profile-readme.vercel.app/api/832022453915090984?theme=dark&bg=0d1117&animated=true&hideDiscrim=true&borderRadius=15px" alt=""/> </h3>
 
 # 💫 About Me:
 Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced in managing databases with SQLite and MongoDB, and I also have a creative side with skills in Adobe Photoshop, After Effects, and Premiere Pro.<br><br>My GitHub profile is mainly private but that is gonna change soon.. maybe<br>
@@ -12,6 +11,11 @@ Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced
 # 💻 Tech Stack:
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white) ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat&logo=Cloudflare&logoColor=white) ![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=flat&logo=apache&logoColor=white) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=flat&logo=sqlite&logoColor=white) ![Adobe After Effects](https://img.shields.io/badge/Adobe%20After%20Effects-9999FF.svg?style=flat&logo=Adobe%20After%20Effects&logoColor=white) ![Adobe Premiere Pro](https://img.shields.io/badge/Adobe%20Premiere%20Pro-9999FF.svg?style=flat&logo=Adobe%20Premiere%20Pro&logoColor=white) ![Gimp Gnu Image Manipulation Program](https://img.shields.io/badge/Gimp-657D8B?style=flat&logo=gimp&logoColor=FFFFFF) ![Adobe Photoshop](https://img.shields.io/badge/adobephotoshop-%2331A8FF.svg?style=flat&logo=adobephotoshop&logoColor=white) ![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=flat&logo=Trello&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white) ![Raspberry Pi](https://img.shields.io/badge/-RaspberryPi-C51A4A?style=flat&logo=Raspberry-Pi)
 
-# Discord Im working on:
+# Discord & Server Im working on:
+
+<h5 align="center"> 
+  <img src="https://discordapp.com/api/guilds/948896716566974464/widget.png?style=banner2" alt="ValoHS"/>
+  <img src="https://lanyard-profile-readme.vercel.app/api/832022453915090984?theme=dark&bg=0d1117&animated=true&hideDiscrim=true&borderRadius=15px" alt=""/> 
+  </h3>
 
 
