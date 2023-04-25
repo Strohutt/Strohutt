@@ -13,4 +13,7 @@ Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced
 # Discord Im working on:
 
 
+  <img src="https://lanyard-profile-readme.vercel.app/api/832022453915090984?theme=dark&bg=0d1117&animated=true&hideDiscrim=true&borderRadius=19px" alt=""/>
+
+
 
