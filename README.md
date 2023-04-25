@@ -10,6 +10,5 @@ Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced
 
 # Discord Im working on:
 
-[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=blue)](https://discord.gg/ValoHS)
 
 
