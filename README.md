@@ -1,4 +1,4 @@
-![DC](https://discord-readme-badge.vercel.app/api?id=832022453915090984)
+[![DC](https://lanyard.cnrad.dev/api/832022453915090984)](https://discord.com/users/832022453915090984)
 
 # 💫 About Me:
 Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced in managing databases with SQLite and MongoDB, and I also have a creative side with skills in Adobe Photoshop, After Effects, and Premiere Pro.<br><br>My GitHub profile is mainly private but that is gonna change soon.. maybe<br>
