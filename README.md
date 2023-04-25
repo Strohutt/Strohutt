@@ -14,5 +14,5 @@ Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced
 
 # Discord Im working on:
 
-![ValoHS](https://discordapp.com/api/guilds/948896716566974464/widget.png?style=banner1)
+![My Discord](https://discord-readme-badge.vercel.app/api?id=832022453915090984)
 
