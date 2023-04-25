@@ -1,4 +1,4 @@
-<img src="https://lanyard-profile-readme.vercel.app/api/832022453915090984?theme=dark&bg=0d1117&animated=true&hideDiscrim=true&borderRadius=15px" alt=""/>
+<h5 align="center"> <img src="https://lanyard-profile-readme.vercel.app/api/832022453915090984?theme=dark&bg=0d1117&animated=true&hideDiscrim=true&borderRadius=15px" alt=""/> </h3>
 
 # 💫 About Me:
 Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced in managing databases with SQLite and MongoDB, and I also have a creative side with skills in Adobe Photoshop, After Effects, and Premiere Pro.<br><br>My GitHub profile is mainly private but that is gonna change soon.. maybe<br>
