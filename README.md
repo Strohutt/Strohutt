@@ -14,8 +14,8 @@ Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced
 # Discord & Server Im working on:
 
 <h5 align="center"> 
+    <img src="https://lanyard-profile-readme.vercel.app/api/832022453915090984?theme=dark&bg=0d1117&animated=true&hideDiscrim=true&borderRadius=25px" alt=""/> 
   <img src="https://discordapp.com/api/guilds/948896716566974464/widget.png?style=banner4" alt="ValoHS"/>
-  <img src="https://lanyard-profile-readme.vercel.app/api/832022453915090984?theme=dark&bg=0d1117&animated=true&hideDiscrim=true&borderRadius=15px" alt=""/> 
   </h3>
 
 
