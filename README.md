@@ -14,5 +14,5 @@ Hi, I'm Hao!<br>I'm a developer with a focus on Python and I'm a bit experienced
 
 # Discord Im working on:
 
-![My Discord](https://discord-readme-badge.vercel.app/api?id=832022453915090984)
+![DC](https://discord-readme-badge.vercel.app/api?id=832022453915090984)
 
