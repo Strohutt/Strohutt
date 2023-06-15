@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <a href="https://git.io/typing-svg">
-    <img src=https://readme-typing-svg.herokuapp.com/?lines=Hello,+There!+👋;%20I%27m+Koa!&center=true&size=50">
+    <img src=https://readme-typing-svg.herokuapp.com/?lines=Hello,+There!+👋;%20I%27m+Koa!&center=true&size=30">
   </a>
 </h1>  
 Hi, I'm Koa!<br>I'm a developer with a focus on Python and I'm a bit experienced in managing databases with SQLite and MongoDB, I also have a creative side with skills in Adobe Photoshop, After Effects, and Premiere Pro.<br><br>My GitHub profile is mainly private but that is gonna change soon.. maybe<br>
