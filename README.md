@@ -2,7 +2,7 @@
 
 
 <h1 align="center">Heya! Im Strohut!</h1>
-<h3 align="center">I am Mico and on the internet I call myself "Strohut". My interest in coding started already in school and I was interested in everything that had to do with software. My first project was a small calculator written with Python.</h3>
+<h3 align="center">I am Mico and on the internet I call myself "Strohut". My interest in coding started already when I was a lil boy (I still am). I was interested in everything that had to do with software and my first project was a small calculator written with Python.</h3>
 
 - 🔭 I’m currently working on [a Discord Bot!](https://github.com/Strohutt/Daycare-Bot)
 - 👯 I’m also working on a [Voice Assistant](https://github.com/Strohutt)
