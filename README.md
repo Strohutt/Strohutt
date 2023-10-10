@@ -7,6 +7,7 @@
 - 🔭 I’m currently working on [a Discord Bot!](https://github.com/Strohutt/Daycare-Bot) (currently working on it..)
 - 👯 I’m also working on a [Voice Assistant](https://github.com/Strohutt) (currently working on it..)
 - 🌱 I’m currently learning everything about **Front-end web development!**
+- ✉ How to contact me: [Send me a mail!](mailto:mail@strohut.me)
 - 👨‍💻 Website is **coming soon** 
 - ⚡ Funny joke **Why did the developer go broke? Because he used up all his cache! AHSAHDHSA FUNNY**
 
