@@ -7,7 +7,6 @@
 - 🔭 I’m currently working on [a Discord Bot!](https://github.com/Strohutt/Daycare-Bot) (currently working on it..)
 - 👯 I’m also working on a [Voice Assistant](https://github.com/Strohutt) (currently working on it..)
 - 🌱 I’m currently learning everything about **Front-end web development!**
-- 
 - 👨‍💻 Website is **coming soon** 
 - ⚡ Funny joke **Why did the developer go broke? Because he used up all his cache! AHSAHDHSA FUNNY**
 
@@ -37,6 +36,7 @@
 <img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Other/git-scm-icon.svg" alt="Git" width="40" height="40"/>
 <img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Other/linux-original.svg" alt="Linux" width="40" height="40"/>
 </p>
+<h5 align="center">I am still a beginner and all my skills are entry level.</h5>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><h3 align="center">Statistics</h3>
 
