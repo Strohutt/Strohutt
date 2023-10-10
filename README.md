@@ -7,9 +7,8 @@
 - 🔭 I’m currently working on [a Discord Bot!](https://github.com/Strohutt/Daycare-Bot) (currently working on it..)
 - 👯 I’m also working on a [Voice Assistant](https://github.com/Strohutt) (currently working on it..)
 - 🌱 I’m currently learning everything about **Front-end web development!**
-
-- 📫 How to reach me **strohuttt@gmail.com**
-- 👨‍💻 All of my projects are available at **coming soon.. I think**
+- 
+- 👨‍💻 Website is **coming soon** 
 - ⚡ Funny joke **Why did the developer go broke? Because he used up all his cache! AHSAHDHSA FUNNY**
 
 <div> <a href="https://twitter.com/Kooaaa_" target="_blank"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" target="_blank"></a>
