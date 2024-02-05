@@ -10,13 +10,9 @@
 - ✉ How to contact me: [Send me a mail!](mailto:mail@strohut.me)
 - 👨‍💻 Website is **coming soon** 
 - ⚡ Funny joke **Why did the developer go broke? Because he used up all his cache! AHSAHDHSA FUNNY**
-
-<div> <a href="https://twitter.com/Kooaaa_" target="_blank"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" target="_blank"></a>
-<a href="https://github.com/Strohutt" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
-<a href = "mailto:strohuttt@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-</div><h3 align="left">Connect with me:</h3>
+<h3 align="left">Connect with me:</h3>
 <p align="left">
-<a href="https://twitter.com/Kooaaa_" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/twitter.svg" alt="Kooaaa_" height="30" width="40" /></a><a href="https://www.youtube.com/c/Strohut" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/youtube.svg" alt="Strohut" height="30" width="40" /></a><a href="https://discord.gg/jyHr3hNwMC" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/discord.svg" alt="jyHr3hNwMC" height="30" width="40" /></a><a href="https://instagram.com/stroh.ut" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/instagram.svg" alt="stroh.ut" height="30" width="40" /></a></p>
+<a href="https://twitter.com/Kooaaa_" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/twitter.svg" alt="Kooaaa_" height="30" width="40" /></a><a href="https://www.youtube.com/c/Strohut" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/youtube.svg" alt="Strohut" height="30" width="40" /></a></p>
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left">
@@ -46,6 +42,5 @@
 
 
 <p align="center"> <img src="https://komarev.com/ghpvc/?username=Strohutt&label=Profile%20views&color=0e75b6&style=flat" alt="Strohutt" /> </p>
-<img align="center" src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Strohutt&theme=aura_dark" height="180em" />
 
 <img src="https://raw.githubusercontent.com/Trilokia/Trilokia/379277808c61ef204768a61bbc5d25bc7798ccf1/bottom_header.svg" />
