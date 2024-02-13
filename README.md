@@ -9,7 +9,7 @@
 - 🌱 I’m currently learning everything about **Front-end web development!**
 - ✉ How to contact me: [Send me a mail!](mailto:mail@strohut.me)
 - 👨‍💻 Website is **coming soon** 
-- ⚡ Funny joke **Why did the developer go broke? Because he used up all his cache! AHSAHDHSA FUNNY**
+- ⚡ Funny joke **Why did the developer go broke? Because he used up all his cache! very funny joke**
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://twitter.com/Kooaaa_" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/twitter.svg" alt="Kooaaa_" height="30" width="40" /></a><a href="https://www.youtube.com/c/Strohut" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/youtube.svg" alt="Strohut" height="30" width="40" /></a></p>
