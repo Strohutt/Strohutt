@@ -4,10 +4,8 @@
 <h1 align="center">Heya! Im Strohut!</h1>
 <h3 align="center">I am Mico and on the internet I call myself "Strohut". My interest in coding started already when I was a lil boy (I still am). I was interested in everything that had to do with software and my first project was a small calculator written with Python.</h3>
 
-- 🔭 I’m currently working on [a Discord Bot!](https://github.com/Strohutt/Daycare-Bot) (currently working on it..)
-- 👯 I’m also working on a [Voice Assistant](https://github.com/Strohutt) (currently working on it..)
 - 🌱 I’m currently learning everything about **Front-end web development!**
-- ✉ How to contact me: [Send me a mail!](mailto:mail@strohut.me)
+- ✉ How to contact me: [Send me a mail!](mailto:strohuttt@gmail.com)
 - 👨‍💻 Website is **coming soon** 
 - ⚡ Funny joke **Why did the developer go broke? Because he used up all his cache! very funny joke**
 <h3 align="left">Connect with me:</h3>
