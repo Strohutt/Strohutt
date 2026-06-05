@@ -1,0 +1,15 @@
+# python
+backend/.venv/
+__pycache__/
+*.pyc
+
+# saved cars
+backend/brains/*.json
+
+# node
+frontend/node_modules/
+frontend/dist/
+
+# logs / os junk
+*.log
+.DS_Store
