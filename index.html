@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#05060f">
+<title>NEON FLUX</title>
+<style>
+  :root{
+    --bg:#080514;
+    --glow:#c46bff;
+    --ink:#f1e7ff;
+  }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ margin:0; height:100%; overflow:hidden; background:var(--bg); }
+  body{
+    font-family:'Trebuchet MS',-apple-system,Segoe UI,Roboto,system-ui,sans-serif;
+    color:var(--ink);
+    user-select:none; -webkit-user-select:none; touch-action:manipulation;
+    position:fixed; inset:0;
+  }
+  canvas{ display:block; position:absolute; inset:0; width:100%; height:100%; }
+
+  /* ---------- HUD ---------- */
+  #hud{
+    position:absolute; top:0; left:0; right:0;
+    display:flex; align-items:center; gap:10px;
+    padding:calc(env(safe-area-inset-top) + 12px) 16px 12px;
+    pointer-events:none; z-index:5;
+  }
+  .pill{
+    pointer-events:auto;
+    background:rgba(10,16,34,.55);
+    border:1px solid rgba(120,200,255,.25);
+    border-radius:14px;
+    padding:8px 14px;
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    font-size:13px; letter-spacing:1px;
+    box-shadow:0 0 18px rgba(196,107,255,.12), inset 0 0 12px rgba(196,107,255,.07);
+    display:flex; align-items:center; gap:8px; white-space:nowrap;
+  }
+  .pill b{ font-size:16px; color:#fff; text-shadow:0 0 10px var(--glow); letter-spacing:1px; }
+  .label{ opacity:.6; font-size:11px; text-transform:uppercase; letter-spacing:2px; }
+  .spacer{ flex:1; }
+  .iconbtn{
+    pointer-events:auto;
+    width:42px; height:42px; flex:0 0 auto;
+    display:grid; place-items:center;
+    background:rgba(10,16,34,.55);
+    border:1px solid rgba(120,200,255,.25);
+    border-radius:12px; color:var(--ink);
+    font-size:18px; cursor:pointer;
+    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    transition:transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .iconbtn:active{ transform:scale(.9); }
+  .iconbtn:hover{ border-color:rgba(196,107,255,.6); box-shadow:0 0 16px rgba(196,107,255,.3); }
+
+  /* ---------- Overlays ---------- */
+  .overlay{
+    position:absolute; inset:0; z-index:10;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:28px;
+    background:radial-gradient(ellipse at center, rgba(5,6,15,.55), rgba(5,6,15,.92));
+    backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px);
+    transition:opacity .45s ease;
+  }
+  .overlay.hidden{ opacity:0; pointer-events:none; }
+  .title{
+    font-size:clamp(40px,13vw,92px);
+    font-weight:900; letter-spacing:6px; margin:0;
+    background:linear-gradient(180deg,#fff,#eab8ff 55%,#ff4ecd);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 24px rgba(214,84,255,.7));
+    line-height:1;
+  }
+  .subtitle{ margin:14px 0 0; opacity:.8; letter-spacing:3px; font-size:13px; text-transform:uppercase; }
+  .desc{ max-width:440px; margin:22px auto 0; line-height:1.6; opacity:.78; font-size:15px; }
+  .btn{
+    margin-top:34px; cursor:pointer;
+    font-size:17px; letter-spacing:3px; font-weight:700; text-transform:uppercase;
+    color:#1a0626;
+    padding:16px 40px; border:none; border-radius:16px;
+    background:linear-gradient(180deg,#f6a8ff,#b24cff);
+    box-shadow:0 0 30px rgba(178,76,255,.6), 0 8px 24px rgba(0,0,0,.4);
+    transition:transform .12s ease, box-shadow .2s ease;
+  }
+  .btn:active{ transform:scale(.95); }
+  .btn:hover{ box-shadow:0 0 44px rgba(178,76,255,.9); }
+  .stats{ display:flex; gap:30px; margin-top:26px; }
+  .stat{ display:flex; flex-direction:column; gap:4px; }
+  .stat .v{ font-size:30px; font-weight:800; color:#fff; text-shadow:0 0 14px var(--glow); }
+  .stat .k{ font-size:11px; letter-spacing:2px; opacity:.6; text-transform:uppercase; }
+  .hint{ margin-top:30px; font-size:12px; opacity:.5; letter-spacing:2px; }
+  @keyframes pulseBtn{ 0%,100%{ box-shadow:0 0 30px rgba(178,76,255,.55),0 8px 24px rgba(0,0,0,.4);} 50%{ box-shadow:0 0 52px rgba(178,76,255,1),0 8px 24px rgba(0,0,0,.4);} }
+  .pulse{ animation:pulseBtn 1.6s ease-in-out infinite; }
+  #jswarn{
+    margin-top:28px; max-width:420px; line-height:1.6;
+    font-size:13px; color:#ffd27f; opacity:.92;
+    border:1px solid rgba(255,180,90,.4); border-radius:14px;
+    padding:14px 18px; background:rgba(50,30,5,.35);
+    box-shadow:0 0 22px rgba(255,170,60,.18);
+  }
+  @media (max-height:520px){ .desc{display:none;} .subtitle{margin-top:8px;} .btn{margin-top:18px;} }
+</style>
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud">
+  <div class="pill"><span class="label">Level</span><b id="lvl">1</b></div>
+  <div class="pill"><span class="label">Züge</span><b id="moves">0</b></div>
+  <div class="spacer"></div>
+  <div class="iconbtn" id="hintBtn" title="Hinweis">💡</div>
+  <div class="iconbtn" id="resetBtn" title="Neu mischen">↻</div>
+  <div class="iconbtn" id="soundBtn" title="Ton an/aus">🔇</div>
+</div>
+
+<div class="overlay" id="startScreen">
+  <h1 class="title">NEON&nbsp;FLUX</h1>
+  <p class="subtitle">Verbinde den Energiefluss</p>
+  <p class="desc">Tippe auf die Kacheln, um sie zu drehen. Leite die Energie vom pulsierenden Kern durch alle Bahnen, bis kein loses Ende mehr übrig ist und das ganze Netz leuchtet.<br><br>Kein Zeitdruck. Kein Punktestress. Einfach denken und gleiten.</p>
+  <button class="btn pulse" id="startBtn">Tippen zum Starten</button>
+  <p class="hint">Tipp irgendwo auf den Bildschirm — los geht's.</p>
+  <div id="jswarn">⚠️ Wenn du diesen Hinweis siehst und nichts im Hintergrund funkelt,
+  läuft das Spiel im reinen Vorschau-Modus (ohne Programm).<br>
+  Öffne die Datei in <b>Safari</b> oder über die <b>Dateien-App</b>, dann läuft alles.</div>
+</div>
+
+<div class="overlay hidden" id="winScreen">
+  <h1 class="title" id="winTitle">VOLLSTÄNDIG</h1>
+  <p class="subtitle">Das Netz pulsiert</p>
+  <div class="stats">
+    <div class="stat"><span class="v" id="winMoves">0</span><span class="k">Züge</span></div>
+    <div class="stat"><span class="v" id="winLevel">1</span><span class="k">Level</span></div>
+  </div>
+  <button class="btn" id="nextBtn">Nächstes Level</button>
+  <p class="hint">Jedes Level ist neu erschaffen — unendlich viele warten.</p>
+</div>
+
+<script>
+"use strict";
+(function(){
+
+// Neon Flux – Schaltkreis-Puzzle
+
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+
+let DPR = Math.min(window.devicePixelRatio || 1, 2.5);
+let W = 0, H = 0;            // CSS-Pixel
+let now = 0;                 // Sekunden
+
+/* ---- Richtungen: N=1, O=2, S=4, W=8 ---- */
+const DIRS = [
+  { bit:1, dr:-1, dc:0, opp:4 }, // Norden
+  { bit:2, dr:0,  dc:1, opp:8 }, // Osten
+  { bit:4, dr:1,  dc:0, opp:1 }, // Süden
+  { bit:8, dr:0,  dc:-1,opp:2 }, // Westen
+];
+const HALF_PI = Math.PI/2;
+
+/* ---- Spielzustand ---- */
+const game = {
+  level: 1,
+  cols: 3, rows: 3,
+  cells: [],          // {mask, spin, lit, litT, ang}
+  srcR: 0, srcC: 0,
+  moves: 0,
+  hue: 190,
+  state: 'menu',      // menu | play | won
+  winAt: 0,
+  poweredCount: 0,
+  hintCell: null, hintT: 0,
+  // Layout
+  cell: 60, gx: 0, gy: 0,
+};
+
+/* ---- Helpers ---- */
+const idx = (r,c)=> r*game.cols + c;
+const inBounds = (r,c)=> r>=0 && c>=0 && r<game.rows && c<game.cols;
+function rotateCW(mask){
+  let m=0;
+  if(mask&1) m|=2; if(mask&2) m|=4; if(mask&4) m|=8; if(mask&8) m|=1;
+  return m;
+}
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+/* =========================================================================
+   Level-Generierung
+   1) Zufälliger Spannbaum vom Kern aus  -> alles verbunden, keine offenen Enden
+   2) Ein paar Extra-Kanten -> Schleifen für mehr Reiz (bleibt lösbar)
+   3) Jede Kachel zufällig rotieren
+   ========================================================================= */
+function genLevel(level){
+  game.level = level;
+  const size = Math.min(7, 3 + Math.floor((level-1)/2));
+  game.cols = size; game.rows = size;
+  game.srcR = (size/2)|0; game.srcC = (size/2)|0;
+  game.hue = (288 + level*53) % 360;
+
+  const N = size*size;
+  const masks = new Array(N).fill(0);
+  const visited = new Array(N).fill(false);
+
+  // randomisierte DFS (Spannbaum)
+  const start = idx(game.srcR, game.srcC);
+  visited[start] = true;
+  const stack = [start];
+  while(stack.length){
+    const cur = stack[stack.length-1];
+    const r = (cur/size)|0, c = cur%size;
+    const opts = [];
+    for(const d of DIRS){
+      const nr=r+d.dr, nc=c+d.dc;
+      if(inBounds(nr,nc) && !visited[idx(nr,nc)]) opts.push(d);
+    }
+    if(opts.length){
+      const d = opts[(Math.random()*opts.length)|0];
+      const nr=r+d.dr, nc=c+d.dc, ni=idx(nr,nc);
+      masks[cur]  |= d.bit;
+      masks[ni]   |= d.opp;
+      visited[ni]=true;
+      stack.push(ni);
+    } else {
+      stack.pop();
+    }
+  }
+
+  // Extra-Schleifen (alles bleibt mit dem Kern verbunden -> immer lösbar)
+  const loopChance = 0.10 + Math.min(0.18, level*0.012);
+  for(let r=0;r<size;r++) for(let c=0;c<size;c++){
+    // nur O- und S-Kanten prüfen, damit jede Kante einmal betrachtet wird
+    for(const d of [DIRS[1], DIRS[2]]){
+      const nr=r+d.dr, nc=c+d.dc;
+      if(!inBounds(nr,nc)) continue;
+      const a=idx(r,c), b=idx(nr,nc);
+      if((masks[a]&d.bit)===0 && Math.random()<loopChance){
+        masks[a]|=d.bit; masks[b]|=d.opp;
+      }
+    }
+  }
+
+  // Kacheln bauen + verwürfeln
+  const cells = new Array(N);
+  for(let i=0;i<N;i++){
+    let m = masks[i];
+    const rot = (Math.random()*4)|0;
+    for(let k=0;k<rot;k++) m = rotateCW(m);
+    cells[i] = { mask:m, spin:0, lit:false, litT:0 };
+  }
+  game.cells = cells;
+  game.moves = 0;
+  game.hintCell = null;
+  game.winShownAt = 0;
+
+  // Falls zufällig schon gelöst: Kern einmal drehen
+  if(isSolved()){ cells[start].mask = rotateCW(cells[start].mask); }
+
+  computePowered();
+  layout();
+}
+
+/* ---- Energie-Ausbreitung vom Kern ---- */
+function computePowered(){
+  const { cols, rows, cells } = game;
+  for(let i=0;i<cells.length;i++) cells[i].lit = false;
+  const startI = idx(game.srcR, game.srcC);
+  const q = [startI];
+  cells[startI].lit = true;
+  while(q.length){
+    const cur = q.pop();
+    const r=(cur/cols)|0, c=cur%cols;
+    const m = cells[cur].mask;
+    for(const d of DIRS){
+      if(!(m & d.bit)) continue;
+      const nr=r+d.dr, nc=c+d.dc;
+      if(!inBounds(nr,nc)) continue;
+      const ni=idx(nr,nc);
+      if(cells[ni].lit) continue;
+      if(cells[ni].mask & d.opp){ cells[ni].lit=true; q.push(ni); }
+    }
+  }
+  let count=0; for(const cell of cells) if(cell.lit) count++;
+  game.poweredCount = count;
+}
+
+/* ---- Gelöst? Kein offenes Ende + alles versorgt ---- */
+function isSolved(){
+  const { cols, rows, cells } = game;
+  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++){
+    const m = cells[idx(r,c)].mask;
+    for(const d of DIRS){
+      if(!(m & d.bit)) continue;
+      const nr=r+d.dr, nc=c+d.dc;
+      if(!inBounds(nr,nc)) return false;        // Bahn zeigt aus dem Gitter
+      if(!(cells[idx(nr,nc)].mask & d.opp)) return false; // Nachbar antwortet nicht
+    }
+  }
+  // alle versorgt?
+  let count=0; for(const cell of cells) if(cell.lit) count++;
+  return count === cells.length;
+}
+
+/* =========================================================================
+   Layout (responsiv, hochauflösend)
+   ========================================================================= */
+function resize(){
+  DPR = Math.min(window.devicePixelRatio || 1, 2.5);
+  W = window.innerWidth; H = window.innerHeight;
+  canvas.width = Math.round(W*DPR);
+  canvas.height = Math.round(H*DPR);
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  layout();
+}
+function layout(){
+  const topPad = 92, sidePad = 22, botPad = 28;
+  const availW = W - sidePad*2;
+  const availH = H - topPad - botPad;
+  const cell = Math.floor(Math.min(availW/game.cols, availH/game.rows));
+  game.cell = cell;
+  const gridW = cell*game.cols, gridH = cell*game.rows;
+  game.gx = Math.round((W - gridW)/2);
+  game.gy = Math.round(topPad + (availH - gridH)/2);
+}
+
+/* =========================================================================
+   Eingabe
+   ========================================================================= */
+function cellAt(x,y){
+  const c = Math.floor((x - game.gx)/game.cell);
+  const r = Math.floor((y - game.gy)/game.cell);
+  if(!inBounds(r,c)) return null;
+  return { r, c };
+}
+function rotateCell(r,c){
+  const cell = game.cells[idx(r,c)];
+  cell.mask = rotateCW(cell.mask);
+  cell.spin -= HALF_PI;          // visuell von -90° nach 0° => Drehung im Uhrzeigersinn
+  game.moves++;
+  game.hintCell = null;
+  const before = game.poweredCount;
+  computePowered();
+  if(game.poweredCount > before){
+    audio.connect();
+    burstAt(r,c, Math.min(14, (game.poweredCount-before)*4 + 4));
+  } else {
+    audio.click();
+  }
+  updateHud();
+  if(isSolved()) triggerWin();
+}
+
+function onPointer(e){
+  if(game.state!=='play') return;
+  if(performance.now() < (game.inputLockUntil||0)) return;   // kurz nach Levelwechsel sperren
+  const rect = canvas.getBoundingClientRect();
+  const p = (e.touches && e.touches[0]) ? e.touches[0] : e;
+  // Berührung auf Layout-Koordinaten skalieren (robust, auch eingebettet)
+  const sx = rect.width ? W/rect.width : 1;
+  const sy = rect.height ? H/rect.height : 1;
+  const x = (p.clientX - rect.left)*sx;
+  const y = (p.clientY - rect.top)*sy;
+  const hit = cellAt(x,y);
+  if(hit) rotateCell(hit.r, hit.c);
+}
+canvas.addEventListener('pointerdown', onPointer);
+
+/* =========================================================================
+   Partikel
+   ========================================================================= */
+const particles = [];
+function spawn(x,y,opts={}){
+  const ang = opts.ang!==undefined ? opts.ang : Math.random()*Math.PI*2;
+  const spd = opts.spd!==undefined ? opts.spd : 60+Math.random()*160;
+  particles.push({
+    x, y,
+    vx: Math.cos(ang)*spd, vy: Math.sin(ang)*spd,
+    life: 0, max: opts.max || (0.5+Math.random()*0.7),
+    r: opts.r || (2+Math.random()*3),
+    hue: opts.hue!==undefined ? opts.hue : game.hue,
+    grav: opts.grav||0,
+  });
+}
+function burstAt(r,c,n){
+  const x = game.gx + c*game.cell + game.cell/2;
+  const y = game.gy + r*game.cell + game.cell/2;
+  for(let i=0;i<n;i++) spawn(x,y,{hue:game.hue + (Math.random()*40-20)});
+}
+function updateParticles(dt){
+  for(let i=particles.length-1;i>=0;i--){
+    const p=particles[i];
+    p.life += dt;
+    if(p.life>=p.max){ particles.splice(i,1); continue; }
+    p.vy += p.grav*dt;
+    p.x += p.vx*dt; p.y += p.vy*dt;
+    p.vx *= 0.96; p.vy *= 0.96;
+  }
+}
+function drawParticles(){
+  ctx.globalCompositeOperation='lighter';
+  for(const p of particles){
+    const t = 1 - p.life/p.max;
+    ctx.beginPath();
+    ctx.fillStyle = `hsla(${p.hue},100%,65%,${t})`;
+    ctx.shadowColor = `hsla(${p.hue},100%,60%,${t})`;
+    ctx.shadowBlur = 12;
+    ctx.arc(p.x, p.y, p.r*(0.4+t*0.6), 0, Math.PI*2);
+    ctx.fill();
+  }
+  ctx.shadowBlur=0;
+  ctx.globalCompositeOperation='source-over';
+}
+
+/* =========================================================================
+   Hintergrund — animiertes Neon-Feld
+   ========================================================================= */
+const stars = [];
+function initStars(){
+  stars.length=0;
+  for(let i=0;i<70;i++){
+    stars.push({ x:Math.random(), y:Math.random(), r:Math.random()*1.6+0.3, s:Math.random()*0.02+0.005, ph:Math.random()*6.28 });
+  }
+}
+function drawBackground(){
+  // tiefer Verlauf
+  const g = ctx.createRadialGradient(W*0.5, H*0.42, 0, W*0.5, H*0.5, Math.max(W,H)*0.8);
+  const baseHue = game.hue;
+  g.addColorStop(0, `hsl(${(baseHue+20)%360},60%,8%)`);
+  g.addColorStop(0.55, `hsl(${baseHue%360},55%,5%)`);
+  g.addColorStop(1, '#03040b');
+  ctx.fillStyle = g;
+  ctx.fillRect(0,0,W,H);
+
+  // schwebende Sterne/Funken
+  ctx.globalCompositeOperation='lighter';
+  for(const s of stars){
+    s.y -= s.s; if(s.y<-0.02){ s.y=1.02; s.x=Math.random(); }
+    const tw = 0.5+0.5*Math.sin(now*2 + s.ph);
+    const x=s.x*W, y=s.y*H;
+    ctx.beginPath();
+    ctx.fillStyle=`hsla(${baseHue},90%,75%,${0.12+tw*0.25})`;
+    ctx.shadowColor=`hsla(${baseHue},90%,70%,0.5)`;
+    ctx.shadowBlur=8;
+    ctx.arc(x,y,s.r*(0.6+tw*0.6),0,Math.PI*2);
+    ctx.fill();
+  }
+  ctx.shadowBlur=0;
+  ctx.globalCompositeOperation='source-over';
+}
+
+/* =========================================================================
+   Brett & Kacheln zeichnen
+   ========================================================================= */
+function drawBoard(){
+  const { cols, rows, cell, gx, gy, cells } = game;
+
+  // sanfter Spielfeld-Rahmen
+  const pad = cell*0.10;
+  roundRect(gx-pad, gy-pad, cols*cell+pad*2, rows*cell+pad*2, cell*0.25);
+  ctx.fillStyle='rgba(8,14,30,0.35)';
+  ctx.fill();
+  ctx.lineWidth=1.5;
+  ctx.strokeStyle=`hsla(${game.hue},90%,60%,0.25)`;
+  ctx.shadowColor=`hsla(${game.hue},90%,60%,0.4)`;
+  ctx.shadowBlur=18; ctx.stroke(); ctx.shadowBlur=0;
+
+  // dezente Gitterpunkte
+  ctx.fillStyle=`hsla(${game.hue},40%,60%,0.10)`;
+  for(let r=0;r<=rows;r++) for(let c=0;c<=cols;c++){
+    ctx.beginPath(); ctx.arc(gx+c*cell, gy+r*cell, 1.3, 0, Math.PI*2); ctx.fill();
+  }
+
+  // erst dunkle Bahnen, dann leuchtende -> sauberes Layering
+  for(let pass=0; pass<2; pass++){
+    for(let r=0;r<rows;r++) for(let c=0;c<cols;c++){
+      const cell0 = cells[idx(r,c)];
+      if(pass===0 && cell0.lit) continue;
+      if(pass===1 && !cell0.lit) continue;
+      drawTile(r,c,cell0);
+    }
+  }
+}
+
+function drawTile(r,c,cellObj){
+  const cell = game.cell;
+  const cx = game.gx + c*cell + cell/2;
+  const cy = game.gy + r*cell + cell/2;
+  const half = cell*0.5;
+  const lit = cellObj.lit;
+  const isSrc = (r===game.srcR && c===game.srcC);
+
+  // sanfte Dreh-Animation einlaufen lassen
+  cellObj.spin += (0 - cellObj.spin) * 0.22;
+  if(Math.abs(cellObj.spin) < 0.001) cellObj.spin = 0;
+
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.rotate(cellObj.spin);
+
+  const lw = cell*0.13;
+  const hue = game.hue;
+  const m = cellObj.mask;
+
+  // Endpunkt-Hervorhebung (Kachel mit nur einer Verbindung)
+  let deg=0; for(const d of DIRS) if(m & d.bit) deg++;
+
+  ctx.lineCap='round'; ctx.lineJoin='round';
+
+  // Basis-Bahn
+  ctx.lineWidth = lw;
+  if(lit){
+    ctx.strokeStyle = `hsl(${hue},100%,62%)`;
+    ctx.shadowColor = `hsl(${hue},100%,55%)`;
+    ctx.shadowBlur = cell*0.34;
+  } else {
+    ctx.strokeStyle = `hsl(${hue},25%,30%)`;
+    ctx.shadowColor = 'rgba(0,0,0,0)';
+    ctx.shadowBlur = 0;
+  }
+  drawWires(m, half, lw);
+
+  // Heller Kern der Bahn (nur wenn versorgt)
+  if(lit){
+    ctx.shadowBlur = 0;
+    ctx.lineWidth = lw*0.42;
+    ctx.strokeStyle = `hsl(${hue},100%,88%)`;
+    drawWires(m, half, lw);
+
+    // fließende Energie-Pulse
+    ctx.globalCompositeOperation='lighter';
+    ctx.setLineDash([cell*0.12, cell*0.46]);
+    ctx.lineDashOffset = -now * cell * 1.6 + (r+c)*7;
+    ctx.lineWidth = lw*0.55;
+    ctx.strokeStyle = `hsla(${(hue+30)%360},100%,82%,0.9)`;
+    ctx.shadowColor = `hsl(${(hue+30)%360},100%,70%)`;
+    ctx.shadowBlur = cell*0.2;
+    drawWires(m, half, lw);
+    ctx.setLineDash([]);
+    ctx.globalCompositeOperation='source-over';
+    ctx.shadowBlur=0;
+  }
+
+  // Endpunkt-Knoten (Dead-Ends hübsch abschließen)
+  if(deg===1 && !isSrc){
+    for(const d of DIRS){ if(m & d.bit){
+      const ex = (d.bit===2? half : d.bit===8? -half : 0);
+      const ey = (d.bit===4? half : d.bit===1? -half : 0);
+      const px = ex*0.62, py = ey*0.62;
+      ctx.beginPath();
+      ctx.fillStyle = lit ? `hsl(${hue},100%,80%)` : `hsl(${hue},25%,40%)`;
+      if(lit){ ctx.shadowColor=`hsl(${hue},100%,60%)`; ctx.shadowBlur=cell*0.25; }
+      ctx.arc(px,py, lw*0.55, 0, Math.PI*2); ctx.fill();
+      ctx.shadowBlur=0;
+    }}
+  }
+
+  // Mittelknoten
+  ctx.beginPath();
+  if(isSrc){
+    const pulse = 0.5 + 0.5*Math.sin(now*3.2);
+    const rad = cell*(0.17 + pulse*0.05);
+    const cg = ctx.createRadialGradient(0,0,0,0,0,rad*2.4);
+    cg.addColorStop(0,'#ffffff');
+    cg.addColorStop(0.4,`hsl(${(hue+40)%360},100%,70%)`);
+    cg.addColorStop(1,`hsla(${hue},100%,50%,0)`);
+    ctx.fillStyle=cg;
+    ctx.arc(0,0,rad*2.4,0,Math.PI*2); ctx.fill();
+    ctx.beginPath();
+    ctx.fillStyle='#fff';
+    ctx.shadowColor=`hsl(${(hue+40)%360},100%,65%)`; ctx.shadowBlur=cell*0.4;
+    ctx.arc(0,0,rad,0,Math.PI*2); ctx.fill();
+    ctx.shadowBlur=0;
+  } else {
+    const rad = cell*0.115;
+    ctx.fillStyle = lit ? `hsl(${hue},100%,72%)` : `hsl(${hue},20%,32%)`;
+    if(lit){ ctx.shadowColor=`hsl(${hue},100%,60%)`; ctx.shadowBlur=cell*0.28; }
+    ctx.arc(0,0,rad,0,Math.PI*2); ctx.fill();
+    ctx.shadowBlur=0;
+  }
+
+  ctx.restore();
+
+  // Hinweis-Markierung
+  if(game.hintCell && game.hintCell.r===r && game.hintCell.c===c){
+    const a = 0.35+0.35*Math.sin(now*6);
+    roundRect(cx-half*0.9, cy-half*0.9, half*1.8, half*1.8, cell*0.18);
+    ctx.lineWidth=2.5;
+    ctx.strokeStyle=`hsla(50,100%,65%,${a})`;
+    ctx.shadowColor='hsla(50,100%,60%,0.8)'; ctx.shadowBlur=16;
+    ctx.stroke(); ctx.shadowBlur=0;
+  }
+}
+
+function drawWires(m, half, lw){
+  ctx.beginPath();
+  if(m & 1){ ctx.moveTo(0,0); ctx.lineTo(0,-half); }
+  if(m & 2){ ctx.moveTo(0,0); ctx.lineTo(half,0); }
+  if(m & 4){ ctx.moveTo(0,0); ctx.lineTo(0,half); }
+  if(m & 8){ ctx.moveTo(0,0); ctx.lineTo(-half,0); }
+  ctx.stroke();
+}
+
+function roundRect(x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+
+/* ---- Sieg-Welle ---- */
+function drawWinWave(){
+  const t = now - game.winAt;
+  if(t > 1.6) return;
+  const cx = game.gx + game.srcC*game.cell + game.cell/2;
+  const cy = game.gy + game.srcR*game.cell + game.cell/2;
+  const maxR = Math.hypot(W,H);
+  for(let i=0;i<3;i++){
+    const tt = t - i*0.18;
+    if(tt<0||tt>1.4) continue;
+    const rad = tt*maxR*0.9;
+    ctx.beginPath();
+    ctx.lineWidth = 6*(1-tt/1.4);
+    ctx.strokeStyle = `hsla(${(game.hue+i*30)%360},100%,70%,${(1-tt/1.4)*0.6})`;
+    ctx.shadowColor=`hsl(${game.hue},100%,60%)`; ctx.shadowBlur=30;
+    ctx.arc(cx,cy,rad,0,Math.PI*2); ctx.stroke();
+  }
+  ctx.shadowBlur=0;
+}
+
+/* =========================================================================
+   Sieg
+   ========================================================================= */
+function triggerWin(){
+  if(game.state!=='play') return;
+  game.state='won';
+  game.winShownAt=0;
+  game.winAt=now;
+  audio.win();
+  // Konfetti-/Funkenexplosion über das ganze Brett
+  for(let r=0;r<game.rows;r++) for(let c=0;c<game.cols;c++){
+    const x=game.gx+c*game.cell+game.cell/2, y=game.gy+r*game.cell+game.cell/2;
+    for(let i=0;i<7;i++) spawn(x,y,{ hue:game.hue+(Math.random()*60-30), spd:80+Math.random()*220, max:0.8+Math.random()*0.9, grav:140 });
+  }
+  clearTimeout(game.winTimer);
+  game.winTimer = setTimeout(()=>{
+    if(game.state!=='won') return;      // inzwischen weitergegangen -> nicht zeigen
+    document.getElementById('winMoves').textContent = game.moves;
+    document.getElementById('winLevel').textContent = game.level;
+    winScreen.classList.remove('hidden');
+    game.winShownAt = performance.now();   // ab jetzt zählt die Sicht-Sperre
+  }, 900);
+}
+
+/* =========================================================================
+   Hinweis: eine Kachel mit offenem Ende sanft markieren
+   ========================================================================= */
+function giveHint(){
+  if(game.state!=='play') return;
+  const { cols, rows, cells } = game;
+  const candidates=[];
+  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++){
+    const m=cells[idx(r,c)].mask;
+    let bad=false;
+    for(const d of DIRS){
+      if(!(m&d.bit)) continue;
+      const nr=r+d.dr,nc=c+d.dc;
+      if(!inBounds(nr,nc) || !(cells[idx(nr,nc)].mask & d.opp)){ bad=true; break; }
+    }
+    if(bad) candidates.push({r,c});
+  }
+  if(candidates.length){
+    game.hintCell = candidates[(Math.random()*candidates.length)|0];
+    audio.click();
+  }
+}
+
+/* =========================================================================
+   Audio — komplett synthetisiert, standardmäßig stumm
+   ========================================================================= */
+const audio = {
+  ctx:null, on:false,
+  ensure(){ if(!this.ctx){ try{ this.ctx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(this.ctx && this.ctx.state==='suspended') this.ctx.resume(); },
+  tone(freq, dur, type='sine', vol=0.12, when=0){
+    if(!this.on||!this.ctx) return;
+    const t = this.ctx.currentTime + when;
+    const o=this.ctx.createOscillator(), g=this.ctx.createGain();
+    o.type=type; o.frequency.value=freq;
+    g.gain.setValueAtTime(0,t);
+    g.gain.linearRampToValueAtTime(vol,t+0.012);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(g).connect(this.ctx.destination);
+    o.start(t); o.stop(t+dur+0.02);
+  },
+  click(){ this.tone(220+Math.random()*40, 0.08, 'triangle', 0.06); },
+  connect(){ this.tone(523.25,0.12,'sine',0.10); this.tone(784,0.16,'sine',0.07,0.04); },
+  win(){
+    const seq=[523.25,659.25,783.99,1046.5,1318.5];
+    seq.forEach((f,i)=> this.tone(f,0.5,'triangle',0.11,i*0.12));
+    this.tone(261.6,0.9,'sine',0.08,0);
+  },
+  toggle(){
+    this.ensure(); this.on=!this.on;
+    document.getElementById('soundBtn').textContent = this.on ? '🔊' : '🔇';
+    if(this.on) this.connect();
+  }
+};
+
+/* =========================================================================
+   HUD / UI
+   ========================================================================= */
+function updateHud(){
+  document.getElementById('lvl').textContent = game.level;
+  document.getElementById('moves').textContent = game.moves;
+}
+const startScreen = document.getElementById('startScreen');
+const winScreen = document.getElementById('winScreen');
+
+function startGame(){
+  if(game.state==='play') return;
+  audio.ensure();
+  clearTimeout(game.winTimer);
+  genLevel(1);
+  game.state='play';
+  game.inputLockUntil = performance.now()+350;
+  startScreen.classList.add('hidden');
+  winScreen.classList.add('hidden');
+  updateHud();
+}
+function nextLevel(){
+  // erst weiter, wenn der Sieg-Screen mind. 500 ms sichtbar war
+  if(game.state!=='won' || !game.winShownAt || performance.now()-game.winShownAt < 500) return;
+  clearTimeout(game.winTimer);
+  genLevel(game.level+1);
+  game.state='play';
+  game.inputLockUntil = performance.now()+350;
+  winScreen.classList.add('hidden');
+  updateHud();
+}
+
+function bindTap(el, fn){
+  let done=false;
+  const h=(e)=>{ e.preventDefault(); e.stopPropagation(); if(done) return; done=true; fn(); setTimeout(()=>done=false,400); };
+  el.addEventListener('click', h);
+  el.addEventListener('touchstart', h, {passive:false});
+}
+bindTap(document.getElementById('startBtn'), startGame);
+bindTap(document.getElementById('nextBtn'), nextLevel);
+
+// Bombensicher: JEDE Berührung irgendwo startet bzw. geht weiter
+function globalAdvance(e){
+  if(game.state==='menu'){ startGame(); }
+  else if(game.state==='won'){ nextLevel(); }
+}
+['touchstart','mousedown','pointerdown','click'].forEach(ev=>{
+  document.addEventListener(ev, globalAdvance, true);
+});
+document.getElementById('soundBtn').addEventListener('click', ()=>audio.toggle());
+document.getElementById('hintBtn').addEventListener('click', giveHint);
+document.getElementById('resetBtn').addEventListener('click', ()=>{
+  if(game.state!=='play') return;
+  genLevel(game.level); updateHud(); audio.click();
+});
+window.addEventListener('keydown', e=>{
+  if(e.key==='Enter'||e.key===' '){
+    if(game.state==='menu') startGame();
+    else if(game.state==='won') nextLevel();
+  }
+  else if(e.key==='h'||e.key==='H') giveHint();
+  else if(e.key==='r'||e.key==='R'){ if(game.state==='play'){ genLevel(game.level); updateHud(); } }
+  else if(e.key==='m'||e.key==='M') audio.toggle();
+});
+window.addEventListener('resize', resize);
+window.addEventListener('orientationchange', ()=>setTimeout(resize,120));
+
+/* =========================================================================
+   Hauptschleife
+   ========================================================================= */
+let last = performance.now();
+function frame(t){
+  const dt = Math.min(0.05, (t-last)/1000);
+  last=t; now = t/1000;
+
+  ctx.clearRect(0,0,W,H);
+  drawBackground();
+
+  if(game.state!=='menu'){
+    drawBoard();
+    drawWinWave();
+  }
+  updateParticles(dt);
+  drawParticles();
+
+  requestAnimationFrame(frame);
+}
+
+/* ---- Boot ---- */
+// JavaScript läuft -> Vorschau-Warnung ausblenden
+var __w=document.getElementById('jswarn'); if(__w) __w.style.display='none';
+resize();
+initStars();
+// Vorschau im Hintergrund des Menüs
+genLevel(1); game.state='menu';
+requestAnimationFrame(frame);
+
+})();
+</script>
+</body>
+</html>
