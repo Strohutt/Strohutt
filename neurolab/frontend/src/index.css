@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #110f0c;
+  color: #ddd6cc;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer components {
+  .card {
+    @apply bg-panel border border-edge rounded-lg p-3;
+  }
+  .card-title {
+    @apply text-sm font-semibold text-amber-200/80 mb-2;
+  }
+  .btn {
+    @apply px-3 py-1.5 rounded-md border border-edge bg-panel2 text-sm
+           hover:border-accent hover:text-accent transition-colors;
+  }
+  .btn-accent {
+    @apply bg-accent/15 border-accent/50 text-accent;
+  }
+  .stat {
+    @apply flex flex-col items-center px-3;
+  }
+  .stat-val {
+    @apply text-lg font-mono font-semibold text-white leading-tight;
+  }
+  .stat-label {
+    @apply text-[11px] text-stone-400;
+  }
+}
+
+input[type="range"] {
+  accent-color: #e6a23c;
+}
