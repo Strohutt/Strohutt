@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 822 86" width="822" height="86" role="img" aria-label="TypeScript, JavaScript, Python, Luau, React, Tailwind, HTML, CSS, Docker, MySQL, Git, Figma, Blender">
+  <title>TypeScript · JavaScript · Python · Luau · React · Tailwind · HTML · CSS · Docker · MySQL · Git · Figma · Blender</title>
+  <style>@media (prefers-reduced-motion: no-preference){
+    .c{animation:pop .5s cubic-bezier(.2,.9,.3,1.15) both;animation-delay:calc(var(--i)*.05s)}
+    @keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}}</style>
+  <g class="c" style="--i:0">
+    <rect x="0.9" y="0.9" width="128.2" height="36.2" rx="19" fill="#12161E" stroke="#6BA5E8" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="65" y="24.5" text-anchor="middle" fill="#6BA5E8"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">TypeScript</text>
+  </g>
+  <g class="c" style="--i:1">
+    <rect x="140.9" y="0.9" width="128.2" height="36.2" rx="19" fill="#12161E" stroke="#E8CF52" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="205" y="24.5" text-anchor="middle" fill="#E8CF52"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">JavaScript</text>
+  </g>
+  <g class="c" style="--i:2">
+    <rect x="280.9" y="0.9" width="90.2" height="36.2" rx="19" fill="#12161E" stroke="#6BA3D6" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="326" y="24.5" text-anchor="middle" fill="#6BA3D6"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">Python</text>
+  </g>
+  <g class="c" style="--i:3">
+    <rect x="382.9" y="0.9" width="70.2" height="36.2" rx="19" fill="#12161E" stroke="#4FB8F0" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="418" y="24.5" text-anchor="middle" fill="#4FB8F0"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">Luau</text>
+  </g>
+  <g class="c" style="--i:4">
+    <rect x="464.9" y="0.9" width="80.2" height="36.2" rx="19" fill="#12161E" stroke="#61DAFB" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="505" y="24.5" text-anchor="middle" fill="#61DAFB"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">React</text>
+  </g>
+  <g class="c" style="--i:5">
+    <rect x="556.9" y="0.9" width="109.2" height="36.2" rx="19" fill="#12161E" stroke="#38BDF8" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="611.5" y="24.5" text-anchor="middle" fill="#38BDF8"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">Tailwind</text>
+  </g>
+  <g class="c" style="--i:6">
+    <rect x="677.9" y="0.9" width="70.2" height="36.2" rx="19" fill="#12161E" stroke="#E8734A" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="713" y="24.5" text-anchor="middle" fill="#E8734A"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">HTML</text>
+  </g>
+  <g class="c" style="--i:7">
+    <rect x="759.9" y="0.9" width="61.2" height="36.2" rx="19" fill="#12161E" stroke="#5B8DEF" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="790.5" y="24.5" text-anchor="middle" fill="#5B8DEF"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">CSS</text>
+  </g>
+  <g class="c" style="--i:8">
+    <rect x="0.9" y="48.9" width="90.2" height="36.2" rx="19" fill="#12161E" stroke="#4A9BE8" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="46" y="72.5" text-anchor="middle" fill="#4A9BE8"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">Docker</text>
+  </g>
+  <g class="c" style="--i:9">
+    <rect x="102.9" y="48.9" width="80.2" height="36.2" rx="19" fill="#12161E" stroke="#E8A33D" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="143" y="72.5" text-anchor="middle" fill="#E8A33D"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">MySQL</text>
+  </g>
+  <g class="c" style="--i:10">
+    <rect x="194.9" y="48.9" width="61.2" height="36.2" rx="19" fill="#12161E" stroke="#E8674A" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="225.5" y="72.5" text-anchor="middle" fill="#E8674A"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">Git</text>
+  </g>
+  <g class="c" style="--i:11">
+    <rect x="267.9" y="48.9" width="80.2" height="36.2" rx="19" fill="#12161E" stroke="#C77DFF" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="308" y="72.5" text-anchor="middle" fill="#C77DFF"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">Figma</text>
+  </g>
+  <g class="c" style="--i:12">
+    <rect x="359.9" y="48.9" width="99.2" height="36.2" rx="19" fill="#12161E" stroke="#F0913F" stroke-opacity=".55" stroke-width="1.8" />
+    <text x="409.5" y="72.5" text-anchor="middle" fill="#F0913F"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16" font-weight="600">Blender</text>
+  </g>
+</svg>

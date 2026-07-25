@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 148" width="840" height="148" role="img" aria-label="Revolution Guild">
+  <title>Revolution Guild</title>
+  <rect x=".8" y=".8" width="838.4" height="146.4" rx="14" fill="#12161E" stroke="#242C3A" stroke-width="1.6" />
+  <rect x="1" y="1" width="5" height="146" rx="2.5" fill="#33C9A7" />
+  <text x="26" y="40" fill="#F3EDE1" font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="21" font-weight="700" letter-spacing=".3">Revolution Guild</text>
+  <text x="26" y="67" fill="#F3EDE1" fill-opacity="0.92"
+      font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="14.5">A Discord bot running an entire server economy — jobs, crafting, fishing, casino, crates.</text>
+  <text x="26" y="90" fill="#8C93A1" fill-opacity="1"
+      font-family="Inter, -apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="14.5">Levels, leaderboards, patched exploits, and a React dashboard sitting on top of all of it.</text>
+  <g><rect x="26" y="108" width="71" height="24" rx="12" fill="#6BA3D6" fill-opacity=".13" stroke="#6BA3D6" stroke-opacity=".45" />
+    <text x="61.5" y="124.5" text-anchor="middle" fill="#6BA3D6" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="600">Python</text></g><g><rect x="105" y="108" width="79" height="24" rx="12" fill="#8C93A1" fill-opacity=".13" stroke="#8C93A1" stroke-opacity=".45" />
+    <text x="144.5" y="124.5" text-anchor="middle" fill="#8C93A1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="600">py-cord</text></g><g><rect x="192" y="108" width="71" height="24" rx="12" fill="#6BA5E8" fill-opacity=".13" stroke="#6BA5E8" stroke-opacity=".45" />
+    <text x="227.5" y="124.5" text-anchor="middle" fill="#6BA5E8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="600">SQLite</text></g><g><rect x="271" y="108" width="63" height="24" rx="12" fill="#61DAFB" fill-opacity=".13" stroke="#61DAFB" stroke-opacity=".45" />
+    <text x="302.5" y="124.5" text-anchor="middle" fill="#61DAFB" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="600">React</text></g><g><rect x="342" y="108" width="71" height="24" rx="12" fill="#C77DFF" fill-opacity=".13" stroke="#C77DFF" stroke-opacity=".45" />
+    <text x="377.5" y="124.5" text-anchor="middle" fill="#C77DFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="600">Pillow</text></g>
+</svg>
