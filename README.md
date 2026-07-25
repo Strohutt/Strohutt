@@ -1,44 +1,60 @@
+<img src=".github/assets/banner.svg" alt="strohut — mico, building tools, games and systems" width="100%" />
 
+Hey, I'm Mico.
 
+First program I wrote was a Python calculator that could barely add. I was a kid and I thought it was the best thing ever made. Still building things, they're just harder to finish now.
 
-<h1 align="center">Heya! Im Strohut!</h1>
-<h3 align="center">I am Mico and on the internet I call myself "Strohut". My interest in coding started already when I was a lil boy (I still am). I was interested in everything that had to do with software and my first project was a small calculator written with Python.</h3>
+### now
 
-- 🌱 I’m currently learning everything about **Front-end web development!**
-- ✉ How to contact me: [Send me a mail!](mailto:strohuttt@gmail.com)
-- 👨‍💻 Website is **coming soon** 
-- ⚡ Funny joke **Why did the developer go broke? Because he used up all his cache! very funny joke**
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://twitter.com/Kooaaa_" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/twitter.svg" alt="Kooaaa_" height="30" width="40" /></a><a href="https://www.youtube.com/c/Strohut" target="blank"><img align="center" src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Social/youtube.svg" alt="Strohut" height="30" width="40" /></a></p>
+Rebuilding Sonitor as a PWA, extending Centauri, and writing content for a life sim that got away from me.
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left">
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Languages/python-original.svg" alt="Python" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Languages/javascript-original.svg" alt="Javascript" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Frontend/tailwindcss-icon.svg" alt="Tailwindcss" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Frontend/css3-original-wordmark.svg" alt="Css" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Frontend/html5-original-wordmark.svg" alt="HTML" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Frontend/react-original-wordmark.svg" alt="React" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Backend/nodejs-original-wordmark.svg" alt="NodeJs" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Backend/nginx-original.svg" alt="Nginx" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Database/mysql-original-wordmark.svg" alt="Mysql" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Database/sqlite-icon.svg" alt="Sqlite" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Database/mariadb-icon.svg" alt="Mariadb" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Database/mongodb-original-wordmark.svg" alt="Mongodb" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Devops/docker-original-wordmark.svg" alt="Docker" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Other/git-scm-icon.svg" alt="Git" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/teamedwardforever/Readme-Generator/71f25dd8b98329b168142a6b782a107b75eab178/svg/Skills/Other/linux-original.svg" alt="Linux" width="40" height="40"/>
-</p>
-<h5 align="center">I am still a beginner and all my skills are entry level.</h5>
+### projects
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><h3 align="center">Statistics</h3>
+<table width="100%">
+<tr><th align="left"><img src=".github/assets/dot-centauri.svg" width="11" height="11" alt="" />&nbsp;&nbsp;Centauri&nbsp;&nbsp;<sub>private</sub></th></tr>
+<tr><td>
 
+My own project tracker, built because I kept forgetting why I'd decided something three weeks earlier. It holds tasks, decisions, reviews and a record of what ran and when, so the reasoning doesn't only live in my head. Notes sit in a vault I can query straight from my editor over MCP instead of digging through folders.
 
-<div align="center">
-<a href="https://github.com/Strohutt">
+`TypeScript` `Node` `React` `SQLite` &nbsp;·&nbsp; passkey and TOTP login, deployed with systemd
 
+</td></tr>
+</table>
 
-<p align="center"> <img src="https://komarev.com/ghpvc/?username=Strohutt&label=Profile%20views&color=0e75b6&style=flat" alt="Strohutt" /> </p>
+<table width="100%">
+<tr><th align="left"><img src=".github/assets/dot-bitjjk.svg" width="11" height="11" alt="" />&nbsp;&nbsp;BITJJK&nbsp;&nbsp;<sub>unofficial fan project · not released</sub></th></tr>
+<tr><td>
 
-<img src="https://raw.githubusercontent.com/Trilokia/Trilokia/379277808c61ef204768a61bbc5d25bc7798ccf1/bottom_header.svg" />
+A text-based Jujutsu Kaisen life sim. You're born human, awaken to cursed energy, and climb the grades. Or you turn, and become the thing they hunt. Combat, domain arenas, shikigami, binding vows, clans, and inheritance across generations.
+
+The engine is 32 modules, the world is 23 content tables, so new content means extending a table rather than touching the engine. 122 test files keep that honest.
+
+`TypeScript` `React` `Zustand` `Vitest` &nbsp;·&nbsp; installs as a PWA, runs without a connection, saves included
+
+</td></tr>
+</table>
+
+<table width="100%">
+<tr><th align="left"><img src=".github/assets/dot-sonitor.svg" width="11" height="11" alt="" />&nbsp;&nbsp;Sonitor&nbsp;&nbsp;<sub>being rebuilt</sub></th></tr>
+<tr><td>
+
+Started as a Discord bot running a server economy: jobs, crafting, casino, jail, contracts and moderation tools. Fishing turned into the biggest subsystem of the lot, with rods, bait, durability, a weather engine and merchant prices that move. A web app grew on top of it.
+
+The whole thing is being rebuilt as a PWA now, Discord bot included.
+
+`Python` `FastAPI` `React` `SQLite` &nbsp;·&nbsp; Discord OAuth, behind nginx and Cloudflare
+
+</td></tr>
+</table>
+
+### stack
+
+**languages** &nbsp;`TypeScript` `JavaScript` `Python` `Luau`<br />
+**web** &nbsp;`React` `Tailwind` `Node` `FastAPI`<br />
+**infra** &nbsp;`Docker` `nginx` `MySQL` `SQLite` `Git`<br />
+**design** &nbsp;`Figma` `Blender`
+
+### elsewhere
+
+<a href="https://twitter.com/Kooaaa_"><img src=".github/assets/link-x.svg" alt="X" /></a>
+<a href="mailto:strohuttt@gmail.com"><img src=".github/assets/link-mail.svg" alt="Mail" /></a>
